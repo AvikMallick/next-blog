@@ -4,9 +4,11 @@ import { NextResponse } from 'next/server';
 // GET SINGLE POST
 export const GET = async (req, { params }) => {
   const { slug } = params;
+  console.log(slug);
   try {
-    const post = await prisma.post.findUnique({
+    const post = await prisma.post.update({
       where: { slug },
+      data: { views: { increment: 1 } },
       include: { user: true },
     });
 

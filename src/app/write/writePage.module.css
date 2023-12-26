@@ -1,4 +1,14 @@
 .container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.select {
+  margin-bottom: 50px;
+  padding: 10px 20px;
+  margin-left: 50px;
+  width: max-content;
 }
 
 .editor {
@@ -14,11 +24,15 @@
   height: 36px;
   border-radius: 50%;
   background-color: transparent;
-  border: 1px solid var(--textCol);
+  border: 1px solid var(--textColor);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.addButton {
+  border-color: #1a8917;
 }
 
 .add {
@@ -37,14 +51,11 @@
   border: none;
   outline: none;
   background-color: transparent;
+  color: var(--textColor);
 }
 
 .input::placeholder {
   color: #b3b3b1;
-}
-
-.addButton {
-  border-color: #1a8917;
 }
 
 .textArea {
@@ -53,8 +64,8 @@
 
 .publish {
   position: absolute;
-  top: 30px;
-  right: 20px;
+  top: 0px;
+  right: 0px;
   padding: 10px 20px;
   border: none;
   background-color: #1a8917;

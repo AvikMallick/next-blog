@@ -19,6 +19,7 @@ const SinglePage = async ({ params }) => {
   const { slug } = params;
 
   const data = await getData(slug);
+  console.log(slug);
 
   return (
     <div className={styles.container}>
@@ -29,7 +30,7 @@ const SinglePage = async ({ params }) => {
             {data?.user?.image && (
               <div className={styles.userImageContainer}>
                 <Image
-                  src={data.user.image || ''}
+                  src={data.user.image}
                   alt=''
                   fill
                   className={styles.avatar}
@@ -37,7 +38,7 @@ const SinglePage = async ({ params }) => {
               </div>
             )}
             <div className={styles.userTextContainer}>
-              <span className={styles.username}>{data?.user.name}</span>
+              <span className={styles.username}>{data?.user?.name}</span>
               <span className={styles.date}>01.01.2024</span>
             </div>
           </div>
@@ -53,7 +54,7 @@ const SinglePage = async ({ params }) => {
           <div
             className={styles.description}
             dangerouslySetInnerHTML={{
-              __html: data?.desc || `<div>No description</div>`,
+              __html: data?.desc || '<h3>No description available</h3>',
             }}
           />
           <div className={styles.comment}>
@@ -65,4 +66,5 @@ const SinglePage = async ({ params }) => {
     </div>
   );
 };
+
 export default SinglePage;
